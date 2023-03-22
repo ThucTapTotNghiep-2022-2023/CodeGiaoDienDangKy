@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/layout/NavbarFooter.cshtml";
+}
+<div id="carouselExampleCaptions" class="carousel slide mt-3 w-100" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active w-100">
+      <img src="https://i1-vnexpress.vnecdn.net/2023/03/21/MG-9792-JPG-7056-1679384317.jpg?w=0&h=0&q=100&dpr=2&fit=crop&s=gNwILE5fB4xkjGG3zLsYzg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+    <div class="carousel-item w-100">
+      <img src="https://i1-vnexpress.vnecdn.net/2023/03/22/L1003444-JPG-4174-1679444363.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=UHkC31DohctvVCuYInxH7A" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+    <div class="carousel-item w-100">
+      <img src="https://i1-vnexpress.vnecdn.net/2023/03/22/L1003399-JPG-3801-1679460829.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=Imgf-qBhsTxSgrfHV_w62A" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<figure class="text-center mt-3">
+    <figcaption class="blockquote-footer">
+        <h2 class="text-dark" title="Source Title">@ViewBag.Message</h2>
+    </figcaption>
+</figure>
+
+<div class="row text-center mt-5 mb-5">
+    <div class="col-12 col-sm-4 col-lg-3 mb-4 mb-lg-0 text-center ">
+        <div class="icon icon-shape icon-lg icon-shape-secondary">
+            <span class="fas fa-shield fa-10x"></span>
+        </div>
+        <h2 class="h3 my-3">AN TOÀN</h2>
+    </div>
+    <div class="col-12 col-sm-4 col-lg-3 mb-4 mb-lg-0 text-center">
+        <div class="icon icon-shape icon-lg icon-shape-secondary">
+            <span class="far fa-handshake fa-10x"></span>
+        </div>
+        <h2 class="h3 my-3">UY TÍN</h2>
+    </div>
+    <div class="col-12 col-sm-4 col-lg-3 mb-4 mb-lg-0 text-center">
+        <div class="icon icon-shape icon-lg icon-shape-secondary">
+            <span class="fas fa-user-shield fa-10x"></span>
+        </div>
+        <h2 class="h3 my-3">BẢO MẬT</h2>
+    </div>
+    <div class="col-12 col-sm-4 col-lg-3 mb-4 mb-lg-0 text-center">
+        <div class="icon icon-shape icon-lg icon-shape-secondary">
+            <span class="fas fa-bolt fa-10x"></span>
+        </div>
+        <h2 class="h3 my-3">NHANH CHÓNG</h2>
+    </div>
+    
+</div>
+
