@@ -9,6 +9,7 @@ namespace webDangKiem.Controllers
 {
     public class HomeController : Controller
     {
+        DBContextDangKiem db = new DBContextDangKiem();
         // GET: Home
         [HttpGet]
         public ActionResult Index() {
@@ -72,8 +73,22 @@ namespace webDangKiem.Controllers
         [HttpGet]
         public ActionResult TinTuc()
         {
+            
             ViewBag.Message="Trang Tin Tức";
             return View();
+        }
+        [HttpGet]
+        public ActionResult TraCuu(string searching)
+        {
+            
+            ViewBag.Message = "Trang Tra Cứu Lịch Sử Đăng ký";
+            var chuphuongtien = from ldk in db.lichdangkiems select ldk;
+            if (!String.IsNullOrEmpty(searching))
+            {
+                chuphuongtien = chuphuongtien.Where(ldk => ldk.chuphuongtien.cccd.Contains(searching));
+            }
+            return View(chuphuongtien.ToList());
+
         }
     }
 }

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<webDangKiem.Models.lichdangkiem>
+@{
+    ViewBag.Title = "TraCuu";
+    Layout = "~/Views/layout/NavbarFooter.cshtml";
+}
+<h3 class="mt-5">&nbsp</h3>
+<figure class="text-center mt-5">
+    <figcaption class="blockquote-footer">
+        <h2 class="text-dark fst-italic" title="Source Title">@ViewBag.Message</h2>
+    </figcaption>
+</figure>
+
+<div class="container align-items-center justify-content-center mt-5">
+    @using (Html.BeginForm("TraCuu", "Home", FormMethod.Get))
+    {
+        <div class="form-group row mt-2 justify-content-center">
+            <label for="example-text-input" class="col-2 col-form-label fw-bold fst-italic">CMND</label>
+            <div class="col-xs-3">
+                @Html.TextBox("searching")
+                <button type="submit" class="btn btn-primary btn-lg mt-3" value="search">TRA CỨU</button>
+            </div>
+        </div>
+    }
+        <table class="table table-bordered border-primary">
+            <tr>
+                <th class="text-center">
+                    BIỂN SỐ XE
+                </th>
+                <th class="text-center">
+                    NGÀY ĐĂNG KIỂM
+                </th>
+                <th class="text-center">
+                    NGÀY HẾT HẠN
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.phuongtien.bienSoxe)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.ngayDangkiem)
+                    </td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.ngayHethan)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
