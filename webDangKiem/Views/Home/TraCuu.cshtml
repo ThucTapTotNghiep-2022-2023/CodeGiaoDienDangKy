@@ -21,33 +21,38 @@
             </div>
         </div>
     }
-        <table class="table table-bordered border-primary">
+    <table class="table table-bordered border-primary">
+        <tr>
+            <th class="text-center">
+                BIỂN SỐ XE
+            </th>
+            <th class="text-center">
+                NGÀY ĐĂNG KIỂM
+            </th>
+            <th class="text-center">
+                NGÀY HẾT HẠN
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th class="text-center">
-                    BIỂN SỐ XE
-                </th>
-                <th class="text-center">
-                    NGÀY ĐĂNG KIỂM
-                </th>
-                <th class="text-center">
-                    NGÀY HẾT HẠN
-                </th>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.phuongtien.bienSoxe)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.ngayDangkiem)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.ngayHethan)
+                </td>
             </tr>
+        }
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td class="text-center">
-                        @Html.DisplayFor(modelItem => item.phuongtien.bienSoxe)
-                    </td>
-                    <td class="text-center">
-                        @Html.DisplayFor(modelItem => item.ngayDangkiem)
-                    </td>
-                    <td class="text-center">
-                        @Html.DisplayFor(modelItem => item.ngayHethan)
-                    </td>
-                </tr>
-            }
+    </table>
 
-        </table>
-    </div>
+
+</div>
+@if (ViewBag.Message != null)
+{
+    <p style="color:red">@ViewBag.Message</p>
+}
