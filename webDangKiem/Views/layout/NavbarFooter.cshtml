@@ -20,6 +20,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    <script src="~/Scripts/jquery-3.6.4.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script type="text/javascript">
         $(function () {
             $('#datetimepicker1').datetimepicker();
@@ -31,10 +34,10 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light center navbar-fixed-left navbar-fixed-top">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarCollapse">
                 <h2 style="font-family:verdana" class="text-info text-center font-italic mt-3 font-weight-bold navbar-fixed-right">ĐĂNG KÝ LỊCH ĐĂNG KIỂM TP.HCM</h2>
                 <div class="navbar-nav align-items-center navbar-fixed-left">
-                    @Html.ActionLink("TRANG CHỦ", "Index", "Home", new { @class = "h4 btn-outline-light nav-item nav-link active font-weight-bold" })
+                    @Html.ActionLink("TRANG CHỦ", "Index", "Home", new { @class = "h4 btn-outline-light nav-item nav-link active font-weight-bold " })
                     @Html.ActionLink("ĐĂNG KÝ LỊCH", "DangKy", "Home", new { @class = "h4 btn-outline-light nav-item nav-link active font-weight-bold" })
                     @Html.ActionLink("TIN TỨC", "TinTuc", "Home", new { @class = "h4 btn-outline-light nav-item nav-link active font-weight-bold" })
                     @Html.ActionLink("TRA CỨU", "TraCuu", "Home", new { @class = "h4 btn-outline-light nav-item nav-link active font-weight-bold" })
@@ -48,7 +51,7 @@
             @RenderBody()
         </div>
     </div>
-    <div class="container-fluid bg-dark text-white text-lg-center ">
+    <div class=" bg-dark text-white text-lg-center ">
         <hr />
         <footer class="p-1">
             <p class="fst-italic">&copy; @DateTime.Now.Year - WEBSITE ĐĂNG KÝ LỊCH ĐĂNG KIỂM TP.HCM</p>

@@ -65,11 +65,13 @@ namespace webDangKiem.Controllers
                     ldk.maPT = pt.maPT;
                     db.lichdangkiems.Add(ldk);
                     db.SaveChanges();
+                    TempData["Successmsg"] = "Đăng Ký thành công";
                     return View();
                 }
-                return RedirectToAction("DangKyThanhCong");
+                return RedirectToAction("DangKy");
             } catch
             {
+                TempData["Errormsg"] = "Đăng ký thất bại";
                 return View();
             }
         }
@@ -84,17 +86,32 @@ namespace webDangKiem.Controllers
         [HttpGet]
         public ActionResult TraCuu(string searching)
         {
-            
-            ViewBag.Message = "Trang Tra Cứu Lịch Sử Đăng ký";
-            var chuphuongtien = from ldk in db.lichdangkiems select ldk;
-            if (!String.IsNullOrEmpty(searching))
+            if (ModelState.IsValid)
             {
-                chuphuongtien = chuphuongtien.Where(ldk => ldk.chuphuongtien.cccd.Contains(searching));
+                ViewBag.Message = "Trang Tra Cứu Lịch Sử Đăng ký";
+                var chuphuongtien = from ldk in db.lichdangkiems select ldk;
+                if (!String.IsNullOrEmpty(searching))
+                {
+                    chuphuongtien = chuphuongtien.Where(ldk => ldk.chuphuongtien.cccd.Contains(searching));
 
+                }
+
+                return View(chuphuongtien.ToList());
             }
-            
-            return View( chuphuongtien.ToList());
-
+            else
+            {
+                return View();
+            }
+        }
+        public ActionResult HuongDanDangKy()
+        {
+            ViewBag.Message = "Trang hướng dẫn đăng ký lịch";
+            return View();
+        }
+        public ActionResult HuongDanTraCuu()
+        {
+            ViewBag.Message = "Trang hướng dẫn Tra Cứu";
+            return View();
         }
     }
 }

@@ -17,7 +17,7 @@
             <label for="example-text-input" class="col-2 col-form-label fw-bold fst-italic">CMND</label>
             <div class="col-xs-3">
                 @Html.TextBox("searching")
-                <button type="submit" class="btn btn-primary btn-lg mt-3" value="search">TRA CỨU</button>
+                <button type="submit" name="btnSubmit" class="btn btn-primary btn-lg mt-3" value="search">TRA CỨU</button>
             </div>
         </div>
     }
@@ -52,7 +52,3 @@
 
 
 </div>
-@if (ViewBag.Message != null)
-{
-    <p style="color:red">@ViewBag.Message</p>
-}
