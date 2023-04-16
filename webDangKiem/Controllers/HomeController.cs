@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using webDangKiem.Models;
@@ -36,6 +37,7 @@ namespace webDangKiem.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    //string from = "hahoanglong08082001@gmail.com";
                     List<Models.trungtam> listt = db.trungtams.ToList();
                     List<Models.phuongtien> listpt = db.phuongtiens.ToList();
                     ViewBag.KhuVuc = new SelectList(listt, "maTT", "KhuVuc");
@@ -66,6 +68,23 @@ namespace webDangKiem.Controllers
                     db.lichdangkiems.Add(ldk);
                     db.SaveChanges();
                     TempData["Successmsg"] = "Đăng Ký thành công";
+                    //using (MailMessage mail = new MailMessage(from, ldk1.email))
+                    //{
+                    //    mail.Subject = "Thông báo đăng ký lịch đăng kiểm thành công";
+                    //    mail.Body = "Xin chào " + ldk1.hoVaten + ". Bạn vừa đăng ký lịch đăng kiểm trên website, hãy tra cứu kết quả đăng ký ở mục tra cứu";
+                    //    mail.From = new MailAddress(from);
+                    //    mail.IsBodyHtml = false;
+                    //    using (SmtpClient smtp = new SmtpClient())
+                    //    {
+                    //        smtp.Host = "smtp.gmail.com";
+                    //        smtp.EnableSsl = true;
+                    //        NetworkCredential networkCredential = new NetworkCredential(from, "Long0808");
+                    //        smtp.UseDefaultCredentials = true;
+                    //        smtp.Credentials = networkCredential;
+                    //        smtp.Port = 587;
+                    //        smtp.Send(mail);
+                    //    }
+                    //}
                     return View();
                 }
                 return RedirectToAction("DangKy");
@@ -86,22 +105,30 @@ namespace webDangKiem.Controllers
         [HttpGet]
         public ActionResult TraCuu(string searching)
         {
-            if (ModelState.IsValid)
+            try
             {
-                ViewBag.Message = "Trang Tra Cứu Lịch Sử Đăng ký";
-                var chuphuongtien = from ldk in db.lichdangkiems select ldk;
-                if (!String.IsNullOrEmpty(searching))
+                if (ModelState.IsValid)
                 {
-                    chuphuongtien = chuphuongtien.Where(ldk => ldk.chuphuongtien.cccd.Contains(searching));
+                    ViewBag.Message = "Trang Tra Cứu Lịch Sử Đăng ký";
+                    var chuphuongtien = from ldk in db.lichdangkiems select ldk;
+                    if (!String.IsNullOrEmpty(searching))
+                    {
+                        chuphuongtien = chuphuongtien.Where(ldk => ldk.chuphuongtien.cccd.Contains(searching));
+                    }
+                    return View(chuphuongtien.ToList());
 
                 }
-
-                return View(chuphuongtien.ToList());
+                else
+                {
+                    return View();
+                }
             }
-            else
+            catch
             {
+                TempData["NotFound"] = "Không tìm thấy thông tin của cccd này";
                 return View();
             }
+
         }
         public ActionResult HuongDanDangKy()
         {

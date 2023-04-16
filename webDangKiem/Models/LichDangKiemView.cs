@@ -15,6 +15,9 @@ namespace webDangKiem.Models
         [StringLength(maximumLength: 12, MinimumLength = 12, ErrorMessage = "CCCD chỉ được nhập 12 số")]
         public string cccd { get; set; }
         [Required(ErrorMessage = "Họ tên không được để trống!")]
+        [RegularExpression(@"^[aAàÀảẢãÃáÁạẠăĂằẰẳẲẵẴắẮặẶâÂầẦẩẨẫẪấẤậẬbBcCdDđĐeEèÈẻẺẽẼéÉẹẸêÊềỀểỂễỄếẾệỆ
+fFgGhHiIìÌỉỈĩĨíÍịỊjJkKlLmMnNoOòÒỏỎõÕóÓọỌôÔồỒổỔỗỖốỐộỘơƠờỜởỞỡỠớỚợỢpPqQrRsStTu
+UùÙủỦũŨúÚụỤưƯừỪửỬữỮứỨựỰvVwWxXyYỳỲỷỶỹỸýÝỵỴzZ\s]+$", ErrorMessage = "Họ và tên Không được nhập số")]
         public string hoVaten { get; set; }
         [Required(ErrorMessage = "Số điện thoại không được để trống!")]
         [RegularExpression(@"^[0-9]+$", ErrorMessage = "Số điện thoại chỉ được nhập số")]

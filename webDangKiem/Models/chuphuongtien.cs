@@ -24,7 +24,7 @@ namespace webDangKiem.Models
     
         public int maCPT { get; set; }
 
-        [StringLength(12, ErrorMessage = "CCCD chỉ nhập 12 chữ số")]
+        [Required]
         public string cccd { get; set; }
         public string hoVaten { get; set; }
         public string soDT { get; set; }
