@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using webDangKiem.Models;
 
 namespace webDangKiem.Controllers
@@ -107,6 +108,7 @@ namespace webDangKiem.Controllers
         {
             try
             {
+                
                 if (ModelState.IsValid)
                 {
                     ViewBag.Message = "Trang Tra Cứu Lịch Sử Đăng ký";
@@ -125,7 +127,6 @@ namespace webDangKiem.Controllers
             }
             catch
             {
-                TempData["NotFound"] = "Không tìm thấy thông tin của cccd này";
                 return View();
             }
 

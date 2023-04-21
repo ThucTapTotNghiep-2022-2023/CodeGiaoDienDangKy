@@ -80,5 +80,22 @@ namespace UnitTest.ModelTest
             var result = cti.checkValidateData(ldkv);
             Assert.That(result, Is.True);
         }
+        [Test]
+        public void testDataLichDangKiem5()
+        {
+            LichDangKiemView ldkv = new LichDangKiemView()
+            {
+                cccd = "079201031411",
+                hoVaten = "Ha Hoang Long",
+                soDT = "0999099900",
+                email = "Long@gmail.com",
+                bienSoxe = "48A90909",
+                ngayDangkiem = DateTime.Parse("12/2/2012"),
+                ngayHethan = DateTime.Parse("12/2/2012"),
+            };
+            var cti = new CTestingInput();
+            var result = cti.checkValidateData(ldkv);
+            Assert.That(result, Is.True);
+        }
     }
 }
